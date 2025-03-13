@@ -1,39 +1,64 @@
 body {
-    background: linear-gradient(to right, #ff9966, #ff5e62); /* تدرج بين البرتقالي والوردي */
-    color: white;
     font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
     text-align: center;
 }
 
-header {
-    background: rgba(0, 0, 0, 0.6); /* شريط العنوان بلون شفاف */
-    padding: 20px;
-    border-radius: 10px;
+h2, h1 {
+    color: #333;
 }
 
-h1 {
-    color: #ffffff;
-}
-
-a {
-    color: yellow; /* لون الروابط */
-    text-decoration: none;
-    font-weight: bold;
-}
-
-a:hover {
-    color: lightblue; /* لون عند تمرير الماوس */
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
-    background-color: #ffcc00;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
     border: none;
-    padding: 10px 20px;
     border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #ff9900;
+    background-color: #0056b3;
 }
+
+p {
+    margin-top: 15px;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    }
