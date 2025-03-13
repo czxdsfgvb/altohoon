@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - متجر الطموح الإلكتروني</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>مرحبًا بك في لوحة التحكم!</h2>
+        <p>لقد قمت بتسجيل الدخول بنجاح.</p>
+        <button onclick="logoutUser()">تسجيل الخروج</button>
+    </div>
+
+    <script>
+        function logoutUser() {
+            localStorage.removeItem("username");
+            localStorage.removeItem("password");
+            alert("تم تسجيل الخروج.");
+            window.location.href = "login.html";
+        }
+    </script>
+</body>
+  </html>
