@@ -3,26 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل حساب جديد</title>
+    <title>إنشاء حساب</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
+        .container { width: 300px; margin: 50px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 0px 10px #ccc; }
+        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h2>إنشاء حساب</h2>
+        <form id="registerForm">
+            <input type="text" id="username" placeholder="اسم المستخدم" required>
+            <input type="password" id="password" placeholder="كلمة المرور" required>
+            <button type="submit">تسجيل</button>
+        </form>
+    </div>
 
-    <h2>تسجيل حساب جديد</h2>
-    
-    <form id="registerForm">
-        <label for="username">اسم المستخدم:</label>
-        <input type="text" id="username" required>
-
-        <label for="email">البريد الإلكتروني:</label>
-        <input type="email" id="email" required>
-
-        <label for="password">كلمة المرور:</label>
-        <input type="password" id="password" required>
-
-        <button type="submit">إنشاء الحساب</button>
-    </form>
-
-    <script src="script.js"></script>
-
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            
+            if (username && password) {
+                localStorage.setItem("user", JSON.stringify({ username: username, password: password }));
+                alert("تم التسجيل بنجاح! يمكنك الآن تسجيل الدخول.");
+                window.location.href = "login.html";
+            } else {
+                alert("يرجى إدخال جميع البيانات.");
+            }
+        });
+    </script>
 </body>
-        </html>
+    </html>
