@@ -1,8 +1,18 @@
 body {
-    background-color: black; /* خلفية سوداء */
+    background: linear-gradient(to right, #ff9966, #ff5e62); /* تدرج بين البرتقالي والوردي */
     color: white;
     font-family: Arial, sans-serif;
     text-align: center;
+}
+
+header {
+    background: rgba(0, 0, 0, 0.6); /* لون شفاف */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1 {
+    color: #ffffff;
 }
 
 .contact {
@@ -12,26 +22,27 @@ body {
 .telegram-btn, .whatsapp-btn {
     display: inline-block;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 20px;
+    border-radius: 30px;
     text-decoration: none;
     font-size: 18px;
     transition: 0.3s;
     margin: 10px;
+    font-weight: bold;
 }
 
 .telegram-btn {
-    background-color: #0088cc; /* لون أزرق تيليجرام */
+    background-color: #0088cc; /* أزرق تيليجرام */
 }
 
 .telegram-btn:hover {
-    background-color: #006699;
+    background-color: #005f99;
 }
 
 .whatsapp-btn {
-    background-color: #25D366; /* لون أخضر واتساب */
+    background-color: #25D366; /* أخضر واتساب */
 }
 
 .whatsapp-btn:hover {
     background-color: #1da851;
-}
+    }
